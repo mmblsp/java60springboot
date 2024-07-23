@@ -1,0 +1,1 @@
+положите файл по пути /usr/share/nginx/signin
