@@ -1,8 +1,12 @@
-package ru.netology.demo;
+package ru.netology.demo.config;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import ru.netology.demo.model.DevProfile;
+import ru.netology.demo.model.ProductionProfile;
+import ru.netology.demo.model.SystemProfile;
 
 @Configuration
 public class JavaConfig {
@@ -12,7 +16,7 @@ public class JavaConfig {
         return new DevProfile();
     }
 
-    @ConditionalOnProperty(name = "netology.profile.dev", havingValue = "false")
+    @ConditionalOnProperty(name = "netology.profile.dev", havingValue = "false", matchIfMissing = true)
     @Bean
     public SystemProfile prodProfile() {
         return new ProductionProfile();
